@@ -15,7 +15,7 @@ int32_t __stdcall ProcessData(int32_t start, int32_t count, Notification notific
     for (int32_t i = 0; i < count; ++i)
     {
         char buffer[64];
-        result += sprintf_s(buffer, "Notification %d from C++", i);
+        result += sprintf_s(buffer, "Notification %d from C++", i + start);
         notification(buffer);
         Sleep(rand() % 500 + 500);
     }
