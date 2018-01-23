@@ -37,7 +37,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ILibraryImport.cs" />
     <Compile Include="LibraryImport.cs" />
+    <Compile Include="LibraryImport_x64.cs" />
+    <Compile Include="LibraryImport_x86.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

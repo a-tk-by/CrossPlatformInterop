@@ -8,7 +8,8 @@ namespace CrossPlatformInterop
     {
         static void Main(string[] args)
         {
-            LibraryImport.ProcessData(1, 10, s => Console.WriteLine(s));
+            ILibraryImport import = LibraryImport.Select();
+            import.ProcessData(1, 10, s => Console.WriteLine(s));
         }
     }
 }

@@ -1,16 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Text;
 
 namespace CrossPlatformInterop
 {
-    public class LibraryImport
+    public static class LibraryImport
     {
-        [UnmanagedFunctionPointer(CallingConvention.StdCall, CharSet=CharSet.Ansi)]
-        public delegate void Notification(string value);
-
-        [DllImport("CrossPlatformLibrary-x64", CallingConvention=CallingConvention.StdCall, ExactSpelling = false)]
-        public static extern int ProcessData(int start, int count, Notification notification);
+        public static ILibraryImport Select()
+        {
+            if (IntPtr.Size == 4) // 32-bit application
+            {
+                return new LibraryImport_x86();
+            }
+            else // 64-bit application
+            {
+                return new LibraryImport_x64();
+            }
+        }
     }
 }
