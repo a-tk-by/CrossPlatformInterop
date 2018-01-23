@@ -9,3 +9,9 @@
 #else
 #define CROSSPLATFORMLIBRARY_API __declspec(dllimport)
 #endif
+
+#include <cstdint>
+
+typedef void(__stdcall* Notification)(const char*);
+
+int32_t CROSSPLATFORMLIBRARY_API __stdcall ProcessData(int32_t start, int32_t count, Notification notification);
